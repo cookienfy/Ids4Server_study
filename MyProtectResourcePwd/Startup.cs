@@ -39,14 +39,14 @@ namespace MyProtectResourcePwd
                 };
             });
 
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("ApiScope", policy =>
-                {
-                    policy.RequireAuthenticatedUser();
-                    policy.RequireClaim("scope", "MyApiPwd1", "MyApiPwd2");
-                });
-            });
+            //services.AddAuthorization(options =>
+            //{
+            //    options.AddPolicy("ApiScope", policy =>
+            //    {
+            //        policy.RequireAuthenticatedUser();
+            //        policy.RequireClaim("scope", "MyApiPwd1", "MyApiPwd2");
+            //    });
+            //});
 
         }
 
@@ -65,7 +65,8 @@ namespace MyProtectResourcePwd
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers().RequireAuthorization("ApiScope");
+                endpoints.MapControllers().RequireAuthorization();
+                //.RequireAuthorization("ApiScope");
             });
         }
     }

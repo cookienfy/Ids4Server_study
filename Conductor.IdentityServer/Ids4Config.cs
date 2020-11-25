@@ -64,7 +64,7 @@ namespace Conductor.IdentityServer
 
                     // where to redirect to after logout
                     PostLogoutRedirectUris = { "https://localhost:7001/signout-callback-oidc" },
-
+                    SlidingRefreshTokenLifetime = 300,
                     AllowedScopes = new List<string>
                     {
                         IdentityServerConstants.StandardScopes.OpenId,
@@ -75,7 +75,8 @@ namespace Conductor.IdentityServer
 
         }
 
-        public static List<TestUser> GetTestUsers() {
+        public static List<TestUser> GetTestUsers()
+        {
             return new List<TestUser>
             {
                 new TestUser()

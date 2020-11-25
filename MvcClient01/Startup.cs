@@ -36,8 +36,11 @@ namespace MvcClient01
                 options.Authority = "http://localhost:9600";
                 options.ClientId = "clientMvc";
                 options.ClientSecret = "secret";
+                options.Scope.Add("profile");
+                options.GetClaimsFromUserInfoEndpoint = true;
                 options.ResponseType = "code";
                 options.SaveTokens = true;
+               
             });
         }
 
