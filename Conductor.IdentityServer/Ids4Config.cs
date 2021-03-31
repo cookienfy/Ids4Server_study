@@ -70,6 +70,24 @@ namespace Conductor.IdentityServer
                         IdentityServerConstants.StandardScopes.OpenId,
                         IdentityServerConstants.StandardScopes.Profile
                     }
+                },
+                new Client{
+                    ClientId ="clientVue",
+                    ClientSecrets = { new Secret("secret".Sha256()) },
+                    AllowedGrantTypes = GrantTypes.Implicit,
+                    AllowAccessTokensViaBrowser=true,
+                      // where to redirect to after login
+                    RedirectUris = { "http://localhost:9528/callback" },
+
+                    // where to redirect to after logout
+                    PostLogoutRedirectUris = { "http://localhost:9528" },
+                    AllowedCorsOrigins={ "http://localhost:9528" },
+                    AccessTokenLifetime=3600,
+                    AllowedScopes = new List<string>
+                    {
+                        IdentityServerConstants.StandardScopes.OpenId,
+                        IdentityServerConstants.StandardScopes.Profile
+                    }
                 }
             };
 

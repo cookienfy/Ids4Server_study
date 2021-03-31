@@ -24,9 +24,21 @@ namespace IdentityServerHost.Quickstart.UI
                     postal_code = 69118,
                     country = "Germany"
                 };
-                
+
                 return new List<TestUser>
                 {
+                    new TestUser
+                    {
+                        SubjectId = "818730",
+                        Username = "admin",
+                        Password = "admin",
+                        Claims =
+                        {
+                            new Claim(JwtClaimTypes.Name, "Super Admin"),
+                            new Claim(JwtClaimTypes.GivenName, "Admin"),
+                            new Claim(JwtClaimTypes.FamilyName, "Admin")
+                        }
+                    },
                     new TestUser
                     {
                         SubjectId = "818727",
